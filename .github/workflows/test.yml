@@ -60,8 +60,8 @@ jobs:
             # 目前关于页面没有合并我的分支
             sed -i "/android:text=/s#=\"#=\"${{ env.tag }}\\\\n\\\\n#" app/src/main/res/layout/dialog_about.xml
           else
-             sed -i "/versionName/s#[0-9a-zA-Z_\.\'\"-]\+\$#\'${{ env.tag }} Build By RexYu\'#" app/build.gradle
-             sed -i "/android:text=/s#=\"#=\"${{ env.tag }}\\\\n\\\\n#" app/src/main/res/layout/dialog_about.xml
+             sed -i "/versionName/s#[0-9a-zA-Z_\.\'\"-]\+\$#\'${{ env.tag }}\'#" app/build.gradle
+             sed -i "/android:text=/s#=\"#=\"${{ env.tag }}  Build By RexYu\\\\n\\\\n#" app/src/main/res/layout/dialog_about.xml
           fi 
           echo 'crosswalk源，防挂'
           if grep -q 'crosswalk' build.gradle; then
