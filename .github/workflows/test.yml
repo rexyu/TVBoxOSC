@@ -133,6 +133,9 @@ jobs:
         run: |
           echo "commit=" >> $GITHUB_ENV
           touch TVBoxOSC/apk/${{ matrix.userName }}-Release.log
+      - name: AAA
+        run: |
+          touch TVBoxOSC/apk/${{ matrix.userName }}-Release.log
       - name: Release and Upload Assets
         uses: ncipollo/release-action@v1
         if: ${{ env.commit }}
