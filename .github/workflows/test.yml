@@ -60,7 +60,7 @@ jobs:
             # 目前关于页面没有合并我的分支
             sed -i "/android:text=/s#=\"#=\"${{ env.tag }}\\\\n\\\\n#" app/src/main/res/layout/dialog_about.xml
           else
-             sed -i "/versionName/s#[0-9a-zA-Z_\.\'\"-]\+\$#\'${{ env.tag }}\'#" app/build.gradle
+             sed -i "/versionName/s#[0-9a-zA-Z_\.\'\"-]\+\$#\'${{ env.tag }} Build By RexYu\'#" app/build.gradle
              sed -i "/android:text=/s#=\"#=\"${{ env.tag }}\\\\n\\\\n#" app/src/main/res/layout/dialog_about.xml
           fi 
           echo 'crosswalk源，防挂'
@@ -134,6 +134,7 @@ jobs:
           echo "commit=" >> $GITHUB_ENV
           touch TVBoxOSC/apk/${{ matrix.userName }}-Release.log
       - name: AAA
+        if: ${{ env.commit }}
         run: |
           touch TVBoxOSC/apk/${{ matrix.userName }}-Release.log
       - name: Release and Upload Assets
