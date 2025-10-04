@@ -26,7 +26,7 @@ jobs:
             branchName: main
           - userName: rexyu
             repoName: Box
-            branchName: main
+            branchName: V2.0
             java_ver: 17
     steps:
       - name: Checkout
